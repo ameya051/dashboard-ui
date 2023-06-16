@@ -2,8 +2,10 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import DashboardTab from "./DashboardTab";
+import AddProjectBtn from "./AddProjectBtn";
 
-const Sidebar = () => {
+const Sidebar = ({open, toggle}) => {
+
   const [dashboardTabs, setDashboardTabs] = useState([
     { icon: "/assets/inbox.svg", title: "Inbox", number: 4 },
     { icon: "/assets/inbox.svg", title: "Inbox", number: 4 },
@@ -19,11 +21,11 @@ const Sidebar = () => {
   ]);
 
   const [projectTabs, setProjectTabs] = useState([
-    {icon: "/assets/tag.svg", title: "Additional Calendar", number: 6 },
-    {icon: "/assets/tag.svg", title: "Additional Calendar", number: 6 },
-    {icon: "/assets/tag.svg", title: "Additional Calendar", number: 6 },
-    {icon: "/assets/tag.svg", title: "Additional Calendar", number: 6 },
-    {icon: "/assets/tag.svg", title: "Additional Calendar", number: 6 },
+    { icon: "/assets/tag.svg", title: "Additional Calendar", number: 6 },
+    { icon: "/assets/tag.svg", title: "Additional Calendar", number: 6 },
+    { icon: "/assets/tag.svg", title: "Additional Calendar", number: 6 },
+    { icon: "/assets/tag.svg", title: "Additional Calendar", number: 6 },
+    { icon: "/assets/tag.svg", title: "Additional Calendar", number: 6 },
   ]);
 
   return (
@@ -36,6 +38,7 @@ const Sidebar = () => {
           width={20}
           height={20}
           className="cursor-pointer"
+          onClick={toggle}
         />
       </div>
       <div className="hidden px-[32px] lg:block">
@@ -67,9 +70,11 @@ const Sidebar = () => {
         </div>
       </div>
       <div
-        className="absolute z-10 flex w-full flex-col lg:static 
-        invisible  opacity-0 duration-500 
-        bg-[#F7F8FA] px-[32px] pb-[30px] transition-all lg:visible lg:w-full lg:opacity-100"
+        className={
+          open === false
+            ? "absolute z-10 flex w-full flex-col lg:static invisible  opacity-0 duration-500 bg-[#F7F8FA] px-[32px] pb-[30px] transition-all lg:visible lg:w-full lg:opacity-100"
+            : "absolute z-10 flex w-full flex-col lg:static flex-1 opacity-100 bg-[#F7F8FA] px-[32px] pb-[30px] transition-all lg:visible lg:w-full lg:opacity-100"
+        }
       >
         <div className="flex flex-col border-b-[1px] border-[#E9EBF0] py-[30px]">
           <div className="mb-[28px] flex items-center justify-between">
@@ -91,7 +96,7 @@ const Sidebar = () => {
           </div>
         </div>
         <div className="flex flex-col border-b-[1px] border-[#E9EBF0] py-[30px]">
-        <div className="mb-[28px] flex items-center justify-between">
+          <div className="mb-[28px] flex items-center justify-between">
             <p className="text-[12px] font-semibold uppercase text-[#98A2B2]">
               PROJECTS
             </p>
@@ -107,6 +112,7 @@ const Sidebar = () => {
             {projectTabs.map((tab) => (
               <DashboardTab key={tab} tab={tab} />
             ))}
+            <AddProjectBtn />
           </div>
         </div>
       </div>

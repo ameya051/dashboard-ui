@@ -55,6 +55,7 @@ const TaskCard = ({ product, status }) => {
                 height={32}
               />
             ))}
+            <p className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#F2F4F7] text-xs font-medium text-[#606C80]">+3</p>
           </div>
           <Image
             src="/assets/add_button.svg"

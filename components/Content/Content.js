@@ -5,7 +5,7 @@ import ContentNav from "./ContentNav";
 import TaskCard from "./TaskCard";
 import AddButton from "./AddButton";
 
-const Content = () => {
+const Content = ({open}) => {
   const [backlogTasks, setBacklogTasks] = useState([
     {
       id: 1,
@@ -171,7 +171,7 @@ const Content = () => {
   ]);
 
   return (
-    <div className="flex-1 false lg:block">
+    <div className={open===false ? "flex-1 false lg:block" : "flex-1 hidden lg:block"}>
       <ContentNav />
       <div className="flex flex-col items-center justify-between gap-2 px-[16px] py-[28px] md:px-[36px] xl:flex-row">
         <div className="flex items-center gap-[24px]">
@@ -224,6 +224,7 @@ const Content = () => {
               width={40}
               height={40}
             />
+            <p className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#F2F4F7] text-xs font-medium text-[#606C80]">+5</p>
           </div>
           <Image
             src="/assets/add_button.svg"
