@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
 
-const TaskCard = ({ product, status }) => {
-  const { taskId, title, category, avatars, links, messages, tasks } = product;
+const TaskCard = (product, status) => {
+  const { taskId, title, category, avatars, links, messages, tasks } = product.product;
   function returnStatusColor(status) {
     if (status === "Backlog") return "#CA8A04";
     else if (status === "To Do") return "#DB2777";
