@@ -1,8 +1,175 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import ContentNav from "./ContentNav";
+import TaskCard from "./TaskCard";
+import AddButton from "./AddButton";
 
 const Content = () => {
+  const [backlogTasks, setBacklogTasks] = useState([
+    {
+      id: 1,
+      taskId: "#UI007",
+      title: "Model Answer",
+      category: "Design",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    },
+    {
+      id: 2,
+      taskId: "#BC004",
+      title: "Create calendar, app and chat messages",
+      category: "Development",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    },
+    {
+      id: 3,
+      taskId: "#FT065",
+      title: "Create calendar, app and chat messages",
+      category: "Design",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    },
+    {
+      id: 4,
+      taskId: "#002",
+      title: "Create calendar, app and chat messages",
+      category: "Development",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    },
+    {
+      id: 5,
+      taskId: "#002",
+      title: "Create calendar, app and chat messages",
+      category: "Development",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    }
+  ]);
+  const [todoTasks, setTodoTasks] = useState([
+    {
+      id: 1,
+      taskId: "#002",
+      title: "Create calendar, app and chat messages",
+      category: "Project",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    },
+    {
+      id: 2,
+      taskId: "#002",
+      title: "Create calendar, app and chat messages",
+      category: "Project",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    },
+    {
+      id: 3,
+      taskId: "#002",
+      title: "Create calendar, app and chat messages",
+      category: "Development",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    },
+    {
+      id: 4,
+      taskId: "#002",
+      title: "Create calendar, app and chat messages",
+      category: "Design",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    },
+  ]);
+  const [inProgressTasks, setInProgressTasks] = useState([
+    {
+      id: 1,
+      taskId: "#002",
+      title: "Create calendar, app and chat messages",
+      category: "Development",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    },
+    {
+      id: 2,
+      taskId: "#002",
+      title: "Create calendar, app and chat messages",
+      category: "Design",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    }
+  ]);
+  const [doneTasks, setDoneTasks] = useState([
+    {
+      id: 1,
+      taskId: "#002",
+      title: "Create calendar, app and chat messages",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    },
+    {
+      id: 2,
+      taskId: "#002",
+      title: "Create calendar, app and chat messages",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    },
+    {
+      id: 3,
+      taskId: "#002",
+      title: "Create calendar, app and chat messages",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    },
+    {
+      id: 4,
+      taskId: "#002",
+      title: "Create calendar, app and chat messages",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    },
+    {
+      id: 5,
+      taskId: "#002",
+      title: "Create calendar, app and chat messages",
+      avatars: ["/assets/avatar_6.svg", "/assets/avatar_7.svg"],
+      links: 1,
+      messages: 1,
+      tasks: 1,
+    },
+  ]);
+
   return (
     <div className="flex-1 false lg:block">
       <ContentNav />
@@ -33,10 +200,30 @@ const Content = () => {
         </div>
         <div className="mt-2 flex items-center gap-2">
           <div className="flex -space-x-4">
-            <Image src='/assets/avatar.svg' alt='avatar' width={40} height={40} />
-            <Image src='/assets/avatar__2.svg' alt='avatar' width={40} height={40} />
-            <Image src='/assets/avatar__3.svg' alt='avatar' width={40} height={40} />
-            <Image src='/assets/avatar__4.svg' alt='avatar' width={40} height={40} />
+            <Image
+              src="/assets/avatar.svg"
+              alt="avatar"
+              width={40}
+              height={40}
+            />
+            <Image
+              src="/assets/avatar__2.svg"
+              alt="avatar"
+              width={40}
+              height={40}
+            />
+            <Image
+              src="/assets/avatar__3.svg"
+              alt="avatar"
+              width={40}
+              height={40}
+            />
+            <Image
+              src="/assets/avatar__4.svg"
+              alt="avatar"
+              width={40}
+              height={40}
+            />
           </div>
           <Image
             src="/assets/add_button.svg"
@@ -162,45 +349,64 @@ const Content = () => {
             </div>
             <div></div>
           </div>
-          <div className="flex flex-col gap-4"></div>
+          <div className="flex flex-col gap-4">
+            {backlogTasks.map((task) => (
+              <TaskCard key={task.id} product={task} status={"Backlog"} />
+            ))}
+            <AddButton />
+          </div>
         </div>
         <div>
           <div className="flex items-center justify-between pb-[28px]">
             <div className="flex items-center justify-between gap-3">
-              <p className="text-[14px] font-medium">Backlog Tasks</p>
-              <p className="bg-[#CA8A04] text-[#CA8A04] rounded-full bg-opacity-10 px-[8px] py-[4px] text-[10px] font-bold">
+              <p className="text-[14px] font-medium">Todo Tasks</p>
+              <p className="bg-[#DB2777] text-[#DB2777] rounded-full bg-opacity-10 px-[8px] py-[4px] text-[10px] font-bold">
                 5
               </p>
             </div>
             <div></div>
           </div>
-          <div className="flex flex-col gap-4"></div>
+          <div className="flex flex-col gap-4">
+            {todoTasks.map((task) => (
+              <TaskCard key={task.id} product={task} status={"To Do"} />
+            ))}
+            <AddButton />
+          </div>
         </div>
         <div>
           <div className="flex items-center justify-between pb-[28px]">
             <div className="flex items-center justify-between gap-3">
-              <p className="text-[14px] font-medium">Backlog Tasks</p>
-              <p className="bg-[#CA8A04] text-[#CA8A04] rounded-full bg-opacity-10 px-[8px] py-[4px] text-[10px] font-bold">
+              <p className="text-[14px] font-medium">In Progress</p>
+              <p className="bg-[#9333EA] text-[#9333EA] rounded-full bg-opacity-10 px-[8px] py-[4px] text-[10px] font-bold">
                 5
               </p>
             </div>
             <div></div>
           </div>
-          <div className="flex flex-col gap-4"></div>
+          <div className="flex flex-col gap-4">
+            {inProgressTasks.map((task) => (
+              <TaskCard key={task.id} product={task} status={"In Progress"} />
+            ))}
+            <AddButton />
+          </div>
         </div>
         <div>
           <div className="flex items-center justify-between pb-[28px]">
             <div className="flex items-center justify-between gap-3">
-              <p className="text-[14px] font-medium">Backlog Tasks</p>
-              <p className="bg-[#CA8A04] text-[#CA8A04] rounded-full bg-opacity-10 px-[8px] py-[4px] text-[10px] font-bold">
+              <p className="text-[14px] font-medium">Done</p>
+              <p className="bg-[#16A34A] text-[#16A34A] rounded-full bg-opacity-10 px-[8px] py-[4px] text-[10px] font-bold">
                 5
               </p>
             </div>
             <div></div>
           </div>
-          <div className="flex flex-col gap-4"></div>
+          <div className="flex flex-col gap-4">
+            {doneTasks.map((task) => (
+              <TaskCard key={task.id} product={task} status={"Done"} />
+            ))}
+            <AddButton />
+          </div>
         </div>
-        
       </div>
     </div>
   );

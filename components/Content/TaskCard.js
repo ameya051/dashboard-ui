@@ -1,14 +1,19 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const TaskCard = (product, status) => {
-  const { taskId, title, category, avatars, links, messages, tasks } = product.product;
-  function returnStatusColor(status) {
-    if (status === "Backlog") return "#CA8A04";
-    else if (status === "To Do") return "#DB2777";
-    else if (status === "In Progress") return "#9333EA";
-    else return "#16A34A";
-  }
+const TaskCard = ({ product, status }) => {
+  const { taskId, title, category, avatars, links, messages, tasks } = product;
+  const [color, setColor] = useState("");
+  useEffect(() => {
+    function returnStatusColor(status) {
+      if (status === "Backlog") setColor("#CA8A04");
+      if (status === "To Do") setColor("#DB2777");
+      if (status === "In Progress") setColor("#9333EA");
+      if (status === "Done") setColor("#16A34A");
+    }
+    returnStatusColor(status);
+  }, [status]);
 
   return (
     <div className="flex flex-col gap-3 rounded-lg bg-white p-[20px] drop-shadow-sm">
@@ -33,9 +38,7 @@ const TaskCard = (product, status) => {
           {category}
         </p>
         <p
-          className={`rounded-full bg-opacity-10 px-[8px] py-[5px] text-[8px] font-bold text-[${returnStatusColor(
-            status
-          )}] bg-[${returnStatusColor(status)}]`}
+          className={`rounded-full bg-opacity-10 px-[8px] py-[5px] text-[8px] font-bold text-[${color}] bg-[${color}]`}
         >
           {status}
         </p>
